@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique — Œil Souverain</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+
+        /* ── VARIABLES & RESET ── */
+        :root {
+            --bg-color: white;
+            --text-color: #0e0e0e;
+            --border-color: rgba(14, 14, 14, 0.12);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Satoshi', sans-serif;
+        }
+
+        /* ── PAGE HEADER ── */
+        .shop-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            padding: 10rem 2rem 4rem;
+            border-bottom: 1px solid var(--text-color);
+        }
+
+        .shop-title {
+            font-size: clamp(3rem, 8vw, 6rem);
+            font-weight: 400;
+            line-height: 0.85;
+            text-transform: uppercase;
+            margin: 0;
+            letter-spacing: -0.03em;
+            padding-bottom: 40px;
+        }
+
+        .shop-header-meta {
+            font-size: 0.65rem;
+            text-align: right;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #888;
+        }
+
+        /* ── FILTRES STYLE TABLEAU ── */
+        .shop-filters {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            border-bottom: 1px solid var(--text-color);
+        }
+
+        .filter-btn {
+            font-family: 'Satoshi', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 1.5rem 2rem;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-right: 1px solid var(--text-color);
+            transition: background 0.2s;
+        }
+
+        .filter-btn:last-child { border-right: none; }
+        .filter-btn::after { content: '▼'; font-size: 0.5rem; }
+        .filter-btn:hover { background: rgba(0,0,0,0.03); }
+        .filter-btn.active { background: var(--text-color); color: ivory; }
+
+        /* ── GRILLE GALERIE ── */
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            border-left: 1px solid var(--border-color);
+        }
+
+        /* ── CARTE PRODUIT ── */
+        .product-card {
+            position: relative;
+            aspect-ratio: 0.85 / 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 2rem;
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            text-decoration: none;
+            color: var(--text-color);
+            transition: background 0.4s ease;
+        }
+
+        .product-card:hover {
+            background-color: rgba(25, 0, 255, 0.02);
+        }
+
+        /* Header de cellule */
+        .card-header-minimal {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.6rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .product-cat-top { color: #888; }
+
+        /* Image centrée */
+        .product-img-center {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2.5rem 0;
+        }
+
+        .product-img-center img {
+            max-width: 85%;
+            max-height: 240px;
+            object-fit: contain;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .product-card:hover .product-img-center img {
+            transform: scale(1.05);
+        }
+
+        /* Footer de cellule */
+        .card-footer-minimal {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .product-price-minimal {
+            font-size: 0.85rem;
+            letter-spacing: -0.02em;
+        }
+
+        /* Badge */
+        .product-badge {
+            position: absolute;
+            top: 4rem;
+            left: 2rem;
+            font-size: 0.55rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            padding: 0.2rem 0.5rem;
+            background: #1900ff;
+            color: white;
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1100px) {
+            .shop-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 650px) {
+            .shop-grid { grid-template-columns: 1fr; }
+            .shop-filters { grid-template-columns: 1fr; }
+            .filter-btn { border-right: none; border-bottom: 1px solid var(--text-color); }
+            .shop-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+        }
+
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<!-- HEADER -->
+<header class="main-header">
+    <a href="index.html" class="logo">Œil Souverain</a>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="catalogue.html">Catalogue,</a></li>
+            <li><a href="articles.html">Articles,</a></li>
+            <li><a href="oracle2.html">Oracle,</a></li>
+            <li><a href="shop.html">Boutique</a></li>
+        </ul>
+    </nav>
+    <div class="nav-right">Index</div>
+</header>
+
+<!-- HEADER -->
+<div class="shop-header">
+    <h1 class="shop-title">Boutique</h1>
+    <div class="shop-header-meta">
+        <span>Œil Souverain</span><br>
+        <span>Saison 01 — 2026</span><br>
+        <span id="resultCount">10 objets</span>
+    </div>
+</div>
+
+<!-- FILTRES -->
+<div class="shop-filters">
+    <button class="filter-btn active" onclick="filter('all', this)">Collection <span>All</span></button>
+    <button class="filter-btn" onclick="filter('publication', this)">Category <span>Books</span></button>
+</div>
+
+<!-- GRILLE -->
+<main class="shop-grid" id="shopGrid">
+
+    <!-- Produit 1 -->
+    <a href="#" class="product-card" data-cat="publication">
+        <div class="card-header-minimal">
+            <span class="product-author-top">ŒIL SOUVERAIN</span>
+            <span class="product-cat-top">EDITION 01</span>
+        </div>
+        <div class="product-img-center">
+            <img src="images/All Books.jpeg" alt="Soma Log">
+        </div>
+        <div class="card-footer-minimal">
+            <span>SOMA LOG</span>
+            <span class="product-price-minimal">€ 25,00</span>
+        </div>
+        <span class="product-badge">Pre-order</span>
+    </a>
+
+    <!-- Produit 2 -->
+    <a href="#" class="product-card" data-cat="publication">
+        <div class="card-header-minimal">
+            <span class="product-author-top">MARIAMA BÂ</span>
+            <span class="product-cat-top">CLASSIC</span>
+        </div>
+        <div class="product-img-center">
+            <img src="images/Une-si-longue-lettre Mariama Bâ.jpg" alt="Une si longue lettre">
+        </div>
+        <div class="card-footer-minimal">
+            <span>UNE SI LONGUE LETTRE</span>
+            <span class="product-price-minimal">€ 12,00</span>
+        </div>
+    </a>
+
+    <!-- Produit 3 -->
+    <a href="#" class="product-card" data-cat="vetement">
+        <div class="card-header-minimal">
+            <span class="product-author-top">ŒIL SOUVERAIN</span>
+            <span class="product-cat-top">APPAREL</span>
+        </div>
+        <div class="product-img-center">
+            <img src="images/Off-White Cotton Script Mary Skate T-Shirt.jpeg" alt="T-Shirt">
+        </div>
+        <div class="card-footer-minimal">
+            <span>LONG SLEEVE S01</span>
+            <span class="product-price-minimal">€ 30,00</span>
+        </div>
+    </a>
+
+    <!-- Produit 4 -->
+    <a href="#" class="product-card" data-cat="publication">
+        <div class="card-header-minimal">
+            <span class="product-author-top">CHIKA OKEKE-AGULU</span>
+            <span class="product-cat-top">ART BOOK</span>
+        </div>
+        <div class="product-img-center">
+            <img src="images/African artists- From 1882 to now.jpg" alt="African Artists">
+        </div>
+        <div class="card-footer-minimal">
+            <span>AFRICAN ARTISTS</span>
+            <span class="product-price-minimal">€ 45,00</span>
+        </div>
+    </a>
+
+</main>
+
+<script>
+function filter(cat, btn) {
+    // Boutons
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    // Cartes
+    let visibleCount = 0;
+    document.querySelectorAll('.product-card').forEach(card => {
+        if (cat === 'all' || card.dataset.cat === cat) {
+            card.classList.remove('hidden');
+            visibleCount++;
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+
+    document.getElementById('resultCount').textContent = visibleCount + (visibleCount > 1 ? ' objets' : ' objet');
+}
+</script>
+
+</body>
+</html>
+
+<footer class="a24-footer">
+    <div class="footer-container">
+        <div>
+            <h3 class="footer-title">Navigation</h3>
+            <ul class="footer-list">
+                <li><a href="#repertoire">Répertoire</a></li>
+                <li><a href="articles.html">Répertoire</a></li>
+                <li><a href="#oracle2.html">Oracle</a></li>
+                <li><a href="#boutique">Boutique</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="footer-title">Archives</h3>
+            <ul class="footer-list">
+                <li><a href="#manifeste">Manifeste</a></li>
+                <li><a href="#">Ressources</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="footer-title">Réseaux sociaux</h3>
+            <ul class="footer-list">
+                <li><a href="#">Instagram</a></li>
+                <li><a href="#">X</a></li>
+                <li><a href="#">LinkedIn</a></li>
+            </ul>
+        </div>
+        <div class="footer-newsletter">
+            <h3 class="footer-title">Restez Souverain</h3>
+            <p>Recevez nos mises à jour archivistiques mensuelles.</p>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Email Address" class="newsletter-input">
+                <button class="newsletter-btn">→</button>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer-logo-text">Œil Souverain</div>
+        <div class="footer-legal">
+            <span>© 2026</span>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+        </div>
+    </div>
+</footer>
