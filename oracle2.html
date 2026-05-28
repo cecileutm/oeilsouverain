@@ -72,8 +72,18 @@ body {
 }
 .intro-title em {color: var(--blue); }
 
-.intro-desc { text-align:center; max-width: 500px; font-size: 0.88rem; line-height: 1.9; opacity: 0.55; margin-bottom: 3.5rem; }
-
+.intro-desc {
+    text-align: center; /* Centre les lignes de texte à l'intérieur du bloc */
+    max-width: 500px;
+    font-size: 0.88rem;
+    line-height: 1.9;
+    opacity: 0.55;
+    
+    /* MODIFICATION ICI : */
+    margin-left: auto;   /* Pousse le bloc vers le centre depuis la gauche */
+    margin-right: auto;  /* Pousse le bloc vers le centre depuis la droite */
+    margin-bottom: 3.5rem; 
+}
 .btn-start {
     border: 1px solid var(--cream);
     background: transparent; color: var(--cream);
@@ -118,7 +128,7 @@ body {
     font-size: clamp(1.8rem, 4vw, 3rem);
     font-weight: 400; line-height: 1.2; margin-bottom: 3rem;
 }
-.q-text em { font-style: italic; color: var(--blue); }
+.q-text em { color: var(--blue); }
 
 .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 
@@ -142,15 +152,15 @@ body {
 .result-shell { max-width: 1200px; margin: 0 auto; }
 
 .result-eyebrow { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 4px; opacity: 0.35; margin-bottom: 1.5rem; }
-.result-title { font-family: 'JouvencelleDisplay', serif; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 400; line-height: 1; margin-bottom: 0.8rem; }
+.result-title { font-family: 'satoshi-light'; font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 400; line-height: 1; margin-bottom: 0.8rem; }
 .result-subtitle { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.4; margin-bottom: 4rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
 
 /* ── GRILLE LIVRES GÉNÉRATIFS ── */
 .archive-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 2fr);
     gap: 3px;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
 }
 
 /* Chaque carte = livre avec couverture p5 */
@@ -208,7 +218,7 @@ body {
     padding: 3rem 0; border-top: 1px solid rgba(255,255,255,0.08); margin-bottom: 3rem;
 }
 .profil-label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 3px; opacity: 0.35; padding-top: 4px; }
-.profil-text  { font-family: 'JouvencelleDisplay';, serif; font-size: 1.15rem; line-height: 1.7; font-style: italic; opacity: 0.85; }
+.profil-text  { font-family: 'satoshi'; font-size: 1.15rem; line-height: 1.7; opacity: 0.85; }
 
 .result-actions { display: flex; gap: 12px; flex-wrap: wrap; }
 .action-btn {
@@ -240,7 +250,7 @@ body {
     <header class="main-header">
     <a href="index.html" class="logo">Œil Souverain</a>
     <nav>
-        <ul class="nav-links">
+        <ul class="nav-links-oracle">
             <li><a href="catalogue.html">Catalogue,</a></li>
             <li><a href="articles.html">Articles,</a></li>
             <li><a href="oracle2.html">Oracle,</a></li>
@@ -259,8 +269,8 @@ body {
     <p class="intro-eyebrow">Archives</p>
     <h1 class="intro-title">L'<em>Oracle</em><br>du Regard</h1>
     <p class="intro-desc">
-        Répondez à cinq questions. L'Oracle vous révèle une sélection d'œuvres 
-        construite pour vous, chaque couverture, générée uniquement pour vous.
+        Répondez à cinq questions.<br> L'Oracle vous révèle une sélection d'œuvres 
+        construite pour vous,<br> chaque couverture, générée uniquement pour vous.
     </p>
     <button class="btn-start" id="btn-start">Commencer le rituel →</button>
 </div>
@@ -277,10 +287,10 @@ body {
             <p class="q-number">Question 01</p>
             <h2 class="q-text">Quand vous voyez une image<br>qui vous <em>représente mal</em>,<br>votre premier réflexe est...</h2>
             <div class="options-grid">
-                <button class="option-btn" data-value="colere"><span class="opt-letter">A</span>La colère — je veux qu'on l'efface, qu'on la conteste</button>
-                <button class="option-btn" data-value="fatigue"><span class="opt-letter">B</span>La fatigue — encore cette image, encore ce regard</button>
-                <button class="option-btn" data-value="contre"><span class="opt-letter">C</span>L'envie de produire — créer l'image qui manque</button>
-                <button class="option-btn" data-value="analyse"><span class="opt-letter">D</span>L'analyse — comprendre d'où vient ce biais, qui en profite</button>
+                <button class="option-btn" data-value="colere"><span class="opt-letter">A</span>La colère : je veux qu'on l'efface, qu'on la conteste</button>
+                <button class="option-btn" data-value="fatigue"><span class="opt-letter">B</span>La fatigue : encore cette image, encore ce regard</button>
+                <button class="option-btn" data-value="contre"><span class="opt-letter">C</span>L'envie de produire : créer l'image qui manque</button>
+                <button class="option-btn" data-value="analyse"><span class="opt-letter">D</span>L'analyse : comprendre d'où vient ce biais, qui en profite</button>
             </div>
         </div>
 
@@ -288,10 +298,10 @@ body {
             <p class="q-number">Question 02</p>
             <h2 class="q-text">Vous-êtes vous déjà <em>cherché·e</em><br>dans une image, et ne pas<br>vous y être trouvé·e ?</h2>
             <div class="options-grid">
-                <button class="option-btn" data-value="souvent"><span class="opt-letter">A</span>Souvent — c'est une expérience familière et épuisante</button>
-                <button class="option-btn" data-value="parfois"><span class="opt-letter">B</span>Parfois — dans certains contextes plus que d'autres</button>
-                <button class="option-btn" data-value="rarement"><span class="opt-letter">C</span>Rarement — j'ai appris à chercher ailleurs</button>
-                <button class="option-btn" data-value="jamais"><span class="opt-letter">D</span>Je n'y avais pas réfléchi — cette question m'ouvre quelque chose</button>
+                <button class="option-btn" data-value="souvent"><span class="opt-letter">A</span>Souvent : c'est une expérience familière et épuisante</button>
+                <button class="option-btn" data-value="parfois"><span class="opt-letter">B</span>Parfois : dans certains contextes plus que d'autres</button>
+                <button class="option-btn" data-value="rarement"><span class="opt-letter">C</span>Rarement : j'ai appris à chercher ailleurs</button>
+                <button class="option-btn" data-value="jamais"><span class="opt-letter">D</span>Je n'y avais pas réfléchi : cette question m'ouvre quelque chose</button>
             </div>
         </div>
 
@@ -299,10 +309,10 @@ body {
             <p class="q-number">Question 03</p>
             <h2 class="q-text">Selon vous, réparer une<br><em>représentation stigmatisante</em><br>passe d'abord par...</h2>
             <div class="options-grid">
-                <button class="option-btn" data-value="visibilite"><span class="opt-letter">A</span>La visibilité — montrer ce qui a été invisibilisé</button>
-                <button class="option-btn" data-value="complexite"><span class="opt-letter">B</span>La complexité — refuser les images trop simples, trop lisses</button>
-                <button class="option-btn" data-value="beaute"><span class="opt-letter">C</span>La beauté — revendiquer l'esthétique comme acte politique</button>
-                <button class="option-btn" data-value="memoire"><span class="opt-letter">D</span>La mémoire — ancrer les images dans une histoire vraie</button>
+                <button class="option-btn" data-value="visibilite"><span class="opt-letter">A</span>La visibilité : montrer ce qui a été invisibilisé</button>
+                <button class="option-btn" data-value="complexite"><span class="opt-letter">B</span>La complexité : refuser les images trop simples, trop lisses</button>
+                <button class="option-btn" data-value="beaute"><span class="opt-letter">C</span>La beauté : revendiquer l'esthétique comme acte politique</button>
+                <button class="option-btn" data-value="memoire"><span class="opt-letter">D</span>La mémoire : ancrer les images dans une histoire vraie</button>
             </div>
         </div>
 
@@ -310,10 +320,10 @@ body {
             <p class="q-number">Question 04</p>
             <h2 class="q-text">Une image graphique peut-elle<br>à elle seule changer<br>un <em>regard biaisé</em> ?</h2>
             <div class="options-grid">
-                <button class="option-btn" data-value="oui_seule"><span class="opt-letter">A</span>Oui — une seule image peut tout déplacer</button>
+                <button class="option-btn" data-value="oui_seule"><span class="opt-letter">A</span>Oui : une seule image peut tout déplacer</button>
                 <button class="option-btn" data-value="oui_accumulation"><span class="opt-letter">B</span>Oui, mais seulement par accumulation — une image ne suffit pas</button>
-                <button class="option-btn" data-value="partiel"><span class="opt-letter">C</span>Partiellement — elle prépare le terrain, mais ne suffit pas</button>
-                <button class="option-btn" data-value="non"><span class="opt-letter">D</span>Non — le changement passe par d'autres leviers aussi</button>
+                <button class="option-btn" data-value="partiel"><span class="opt-letter">C</span>Partiellement : elle prépare le terrain, mais ne suffit pas</button>
+                <button class="option-btn" data-value="non"><span class="opt-letter">D</span>Non : le changement passe par d'autres leviers aussi</button>
             </div>
         </div>
 
@@ -321,10 +331,10 @@ body {
             <p class="q-number">Question 05</p>
             <h2 class="q-text">Ce qui vous manque le plus<br>dans les images que vous<br>consommez au quotidien, c'est...</h2>
             <div class="options-grid">
-                <button class="option-btn" data-value="dignite"><span class="opt-letter">A</span>La dignité — des corps représentés avec soin et respect</button>
-                <button class="option-btn" data-value="diversite"><span class="opt-letter">B</span>La diversité des récits — pas juste la souffrance ou l'exotisme</button>
-                <button class="option-btn" data-value="auteur"><span class="opt-letter">C</span>L'auteurité — des images faites par ceux qu'elles montrent</button>
-                <button class="option-btn" data-value="joie"><span class="opt-letter">D</span>La joie ordinaire — des images qui ne justifient pas leur existence</button>
+                <button class="option-btn" data-value="dignite"><span class="opt-letter">A</span>La dignité : des corps représentés avec soin et respect</button>
+                <button class="option-btn" data-value="diversite"><span class="opt-letter">B</span>La diversité des récits : pas juste la souffrance ou l'exotisme</button>
+                <button class="option-btn" data-value="auteur"><span class="opt-letter">C</span>L'auteurité : des images faites par ceux qu'elles montrent</button>
+                <button class="option-btn" data-value="joie"><span class="opt-letter">D</span>La joie ordinaire : des images qui ne justifient pas leur existence</button>
             </div>
         </div>
     </div>
@@ -333,7 +343,7 @@ body {
 <!-- RÉSULTAT -->
 <div id="screen-result" class="screen hidden">
     <div class="result-shell">
-        <p class="result-eyebrow">Votre archive souveraine</p>
+        <p class="result-eyebrow">Votre bibliothèque</p>
         <h2 class="result-title" id="result-title">—</h2>
         <p class="result-subtitle" id="result-subtitle">—</p>
 
@@ -379,13 +389,13 @@ const ARCHIVE = [
 
 // ── PROFILS ───────────────────────────────────────────────────
 const PROFILS = {
-    default:            { title:"Le Regard en Construction",  subtitle:"Profil : Conscience & Ouverture",    text:"Vous êtes en train de nommer quelque chose que vous ressentiez sans toujours pouvoir le formuler. Ce que cette archive vous propose, c'est justement ça : des œuvres qui ont fait ce travail de nomination avant vous. Le graphisme comme langage qui dit ce que les mots ne suffisent pas à dire." },
-    colere_visibilite:  { title:"L'Image Comme Acte",         subtitle:"Profil : Résistance & Visibilité",   text:"Pour vous, une image n'est jamais anodine. La colère que provoque la mauvaise représentation est une énergie — celle qui pousse à produire, à montrer, à corriger. Vous comprenez que la visibilité n'est pas un luxe mais une condition de l'existence sociale." },
-    contre_beaute:      { title:"L'Esthétique Souveraine",    subtitle:"Profil : Création & Revalorisation", text:"Votre réponse à la stigmatisation est de créer. Vous croyez que la beauté est politique — que représenter la dignité, la joie, la complexité d'un corps est en soi un acte de résistance. Sidibé, Moses : des auteurs qui ont choisi de ne montrer que ce qu'ils voulaient que le monde voie." },
-    fatigue_complexite: { title:"Le Témoin Épuisé",           subtitle:"Profil : Mémoire & Complexité",      text:"Vous portez le poids des images que vous avez vues — celles qui réduisent, qui effacent, qui simplifient. Votre antidote n'est pas le contre-stéréotype lisse, mais la complexité irréductible. Des œuvres qui refusent de se laisser résumer." },
-    analyse_memoire:    { title:"L'Archiviste Critique",      subtitle:"Profil : Analyse & Transmission",    text:"Vous approchez les images avec méthode. Vous cherchez à comprendre les mécanismes de production du regard biaisé — qui a tenu l'appareil, qui a commandé l'image, qui en profite. Cette archive est pour vous une source, pas une réponse." },
-    jamais_auteur:      { title:"L'Éveil du Regard",          subtitle:"Profil : Découverte & Auteurité",    text:"Cette question vous ouvre quelque chose. Vous n'aviez peut-être pas encore pleinement conscientisé l'enjeu de l'auteurité dans l'image — qui représente qui, avec quel regard, depuis quelle position. C'est exactement pour ça que cette archive existe." },
-    joie_dignite:       { title:"La Joie Ordinaire",          subtitle:"Profil : Dignité & Quotidien",       text:"Ce que vous réclamez, c'est le droit à l'image sans justification. Pas le corps héroïque, pas la souffrance documentée — juste la présence ordinaire, la joie qui n'a pas besoin d'être méritée. Sidibé, Bodian, Moses : des photographes du quotidien souverain." },
+    default:            { title:"Le regard en construction",  subtitle:"Profil : Conscience & ouverture",    text:"Vous êtes en train de nommer quelque chose que vous ressentiez sans toujours pouvoir le formuler. Ce que cette archive vous propose, c'est justement ça : des œuvres qui ont fait ce travail de nomination avant vous. Le graphisme comme langage qui dit ce que les mots ne suffisent pas à dire." },
+    colere_visibilite:  { title:"L'Image comme acte",         subtitle:"Profil : Résistance & Visibilité",   text:"Pour vous, une image n'est jamais anodine. La colère que provoque la mauvaise représentation est une énergie, celle qui pousse à produire, à montrer, à corriger. Vous comprenez que la visibilité n'est pas un luxe mais une condition de l'existence sociale." },
+    contre_beaute:      { title:"L'esthétique libre",    subtitle:"Profil : Création & revalorisation", text:"Votre réponse à la stigmatisation est de créer. Vous croyez que la beauté est politique, que représenter la dignité, la joie, la complexité d'un corps est en soi un acte de résistance. Sidibé, Moses : des auteurs qui ont choisi de ne montrer que ce qu'ils voulaient que le monde voie." },
+    fatigue_complexite: { title:"Le témoin épuisé",           subtitle:"Profil : Mémoire & complexité",      text:"Vous portez le poids des images que vous avez vues, celles qui réduisent, qui effacent, qui simplifient. Votre antidote n'est pas le contre-stéréotype lisse, mais la complexité irréductible. Des œuvres qui refusent de se laisser résumer." },
+    analyse_memoire:    { title:"L'archiviste critique",      subtitle:"Profil : Analyse & transmission",    text:"Vous approchez les images avec méthode. Vous cherchez à comprendre les mécanismes de production du regard biaisé, qui a tenu l'appareil, qui a commandé l'image, qui en profite. Cette archive est pour vous une source, pas une réponse." },
+    jamais_auteur:      { title:"L'éveil du regard",          subtitle:"Profil : Découverte & auteurité",    text:"Cette question vous ouvre quelque chose. Vous n'aviez peut-être pas encore pleinement conscientisé l'enjeu de l'auteurité dans l'image, qui représente qui, avec quel regard, depuis quelle position. C'est exactement pour ça que cette archive existe." },
+    joie_dignite:       { title:"La joie ordinaire",          subtitle:"Profil : Dignité & quotidien",       text:"Ce que vous réclamez, c'est le droit à l'image sans justification. Pas le corps héroïque, pas la souffrance documentée, juste la présence ordinaire, la joie qui n'a pas besoin d'être méritée. Sidibé, Bodian, Moses : des photographes du quotidien souverain." },
 };
 
 // ── ÉTAT ──────────────────────────────────────────────────────
