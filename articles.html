@@ -4,19 +4,16 @@
     <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Œil Souverain</title>
+    <title>Articles — Œil Souverain</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="cursor" id="cursor"></div>
 
-<!-- HEADER -->
 <header class="main-header">
     <a href="index.html" class="logo">Œil Souverain</a>
     <nav>
@@ -30,43 +27,87 @@
     <div class="nav-right">Index</div>
 </header>
 
-<main class="article-page">
-    <section class="article-hero">
-        <h1 class="article-big-title">Afro <br> Futurisme</h1>
-        
-        <div class="article-image-container">
-            <img src="images/theodora2.jpg" alt="Vision Afrofuturiste">
-        </div>
+<main>
 
-        <p class="article-quote">
-            "Nous ne projetons pas seulement le futur, nous le récupérons. L'Afrofuturisme est le carrefour où la technologie rencontre la mémoire ancestrale pour briser les chaînes du présent."
-        </p>
+  <!-- HERO ARTICLES -->
+  <section class="articles-hero">
+    <span class="rep-label">Éditions — Saison 01</span>
+    <h1>Articles</h1>
+  </section>
 
-        <a href="#lire" class="read-more-btn">Explorer le manifeste</a>
-    </section>
+  <!-- LISTE DES ARTICLES -->
+  <section class="articles-list">
+
+    <a href="article1.html" class="book-index article-row">
+      <div class="article-row-left">
+        <span class="article-num">00-01</span>
+        <span class="article-category">Article</span>
+      </div>
+      <h2 class="article-row-title">Afrofuturisme</h2>
+      <span class="article-date">2026</span>
+      <img src="images/theodora2.jpg" class="hover-image" alt="Afrofuturisme">
+    </a>
+
+    <a href="#" class="book-index article-row">
+      <div class="article-row-left">
+        <span class="article-num">00-02</span>
+        <span class="article-category">Article</span>
+      </div>
+      <h2 class="article-row-title">Le dandysme noir</h2>
+      <span class="article-date">2026</span>
+      <img src="images/Peter-Anderson.jpg" class="hover-image" alt="Souveraineté">
+    </a>
+
+    <a href="#" class="book-index article-row">
+      <div class="article-row-left">
+        <span class="article-num">00-03</span>
+        <span class="article-category">Article</span>
+      </div>
+      <h2 class="article-row-title">L'Archive comme Résistance</h2>
+      <span class="article-date">2026</span>
+      <img src="images/Malick-Sidibe_malick.jpg" class="hover-image" alt="Archive">
+    </a>
+
+    <a href="#" class="book-index article-row">
+      <div class="article-row-left">
+        <span class="article-num">00-04</span>
+        <span class="article-category">Article</span>
+      </div>
+      <h2 class="article-row-title">Négritude & Modernité</h2>
+      <span class="article-date">2026</span>
+      <img src="images/Cahier d'un retour au pays natal.jpg" class="hover-image" alt="Négritude">
+    </a>
+
+    <a href="#" class="book-index article-row">
+      <div class="article-row-left">
+        <span class="article-num">00-05</span>
+        <span class="article-category">Article</span>
+      </div>
+      <h2 class="article-row-title">Esthétiques Panafricaines</h2>
+      <span class="article-date">2026</span>
+      <img src="images/African artists- From 1882 to now.jpg" class="hover-image" alt="Esthétiques">
+    </a>
+
+  </section>
+
 </main>
 
 
-
-
-</section>
-
-<!-- FOOTER -->
 <footer class="a24-footer">
     <div class="footer-container">
         <div>
             <h3 class="footer-title">Navigation</h3>
             <ul class="footer-list">
-                <li><a href="#repertoire">Répertoire</a></li>
-                <li><a href="articles.html">Répertoire</a></li>
-                <li><a href="#oracle2.html">Oracle</a></li>
-                <li><a href="#boutique">Boutique</a></li>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="oracle2.html">Oracle</a></li>
+                <li><a href="shop.html">Boutique</a></li>
             </ul>
         </div>
         <div>
             <h3 class="footer-title">Archives</h3>
             <ul class="footer-list">
-                <li><a href="#manifeste">Manifeste</a></li>
+                <li><a href="#">Manifeste</a></li>
                 <li><a href="#">Ressources</a></li>
             </ul>
         </div>
@@ -97,8 +138,6 @@
     </div>
 </footer>
 
-
-<!-- TICKER — déplacé en bas -->
 <div class="nav-ticker">
     <div class="nav-ticker-track">
         <span>ŒIL SOUVERAIN — SAISON 01 — 2026 &nbsp;</span>
@@ -109,6 +148,7 @@
         <span>ŒIL SOUVERAIN — SAISON 01 — 2026 &nbsp;</span>
     </div>
 </div>
+
 <script>
 // CURSOR
 const cursor = document.getElementById('cursor');
@@ -116,49 +156,15 @@ document.addEventListener('mousemove', e => {
     cursor.style.left = e.clientX + 'px';
     cursor.style.top = e.clientY + 'px';
 });
-document.querySelectorAll('a, button, .book-index, .ps-swatch').forEach(el => {
+document.querySelectorAll('a, button').forEach(el => {
     el.addEventListener('mouseenter', () => cursor.classList.add('big'));
     el.addEventListener('mouseleave', () => cursor.classList.remove('big'));
 });
 
-// HOVER IMAGE FOLLOW
-document.querySelectorAll('.book-index').forEach(item => {
-    item.addEventListener('mousemove', e => {
-        const img = item.querySelector('.hover-image');
-        if (!img) return;
-        const rect = item.getBoundingClientRect();
-        img.style.left = `${e.clientX - rect.left}px`;
-    });
-});
-
-// NAVBAR ADAPTATIVE — détecte les sections sombres vs claires
+// NAVBAR
 const header = document.querySelector('.main-header');
-
-// Sections à fond sombre → navbar blanche
-const darkSections = document.querySelectorAll('.s-hero, .s-oracle, .s-boutique, .s-manifeste');
-
-// Sections à fond clair → navbar noire
-const lightSections = document.querySelectorAll('.s-intro, .index-section, #afrofuturisme');
-
-const navObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        if (entry.target.matches('.s-hero, .s-oracle, .s-boutique, .s-manifeste')) {
-            header.classList.remove('nav--light');
-            header.classList.add('nav--dark');
-        } else {
-            header.classList.remove('nav--dark');
-            header.classList.add('nav--light');
-        }
-    });
-}, { threshold: 0.4 });
-
-darkSections.forEach(s => navObserver.observe(s));
-lightSections.forEach(s => navObserver.observe(s));
-
-// État initial
 header.classList.add('nav--dark');
-
 </script>
+
 </body>
 </html>
